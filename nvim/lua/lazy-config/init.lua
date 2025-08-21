@@ -136,7 +136,7 @@ require("lazy").setup({
     "tpope/vim-fugitive",
     {
       priority = 1000, -- make sure to load this before all the other start plugins
-      dir = "~/nvim-plugins/nvim-grey",
+      dir = "~/.config/nvim-plugins/nvim-grey",
     },
      {
 	"navarasu/onedark.nvim",
