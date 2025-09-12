@@ -139,12 +139,12 @@ require("lazy").setup({
       dir = "~/.config/nvim-plugins/nvim-grey",
     },
      {
-	"navarasu/onedark.nvim",
+	"rebelot/kanagawa.nvim",
     lazy = false,
 	config = function()
-        require('onedark').setup {
-            style = 'warm'
-        }
+        require('kanagawa').setup({
+            theme = "dragon",
+        })
 	end
     },
     {
@@ -152,7 +152,7 @@ require("lazy").setup({
       opts = {
         set_dark_mode = function()
             vim.api.nvim_set_option_value("background", "dark", {})
-            require('onedark').load()
+            vim.cmd("colorscheme kanagawa-dragon")
         end,
         set_light_mode = function()
             vim.api.nvim_set_option_value("background", "light", {})
