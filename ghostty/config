@@ -342,7 +342,7 @@ freetype-load-flags = hinting,force-autohint,monochrome,autohint
 # 
 #   - macOS: titlebar tabs style is not updated when switching themes.
 # 
-theme = dark:"Ghostty Default StyleDark",light:grey
+theme = dark:"Kanagawa Dragon",light:grey
 
 # The foreground and background color for selection. If this is not set, then
 # the selection color is just the inverted window background and foreground
@@ -1026,7 +1026,7 @@ window-inherit-font-size = true
 # 
 # macOS: To hide the titlebar without removing the native window borders
 #        or rounded corners, use `macos-titlebar-style = hidden` instead.
-window-decoration = false
+window-decoration = true
 
 # The font that will be used for the application's window and tab titles.
 # 
@@ -1581,7 +1581,7 @@ macos-non-native-fullscreen = false
 # most cases.
 # 
 # Changing this option at runtime only applies to new windows.
-macos-titlebar-style = hidden
+macos-titlebar-style = native
 
 # Whether the proxy icon in the macOS titlebar is visible. The proxy icon
 # is the icon that represents the folder of the current working directory.

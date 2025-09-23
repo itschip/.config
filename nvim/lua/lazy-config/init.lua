@@ -144,6 +144,9 @@ require("lazy").setup({
 	config = function()
         require('kanagawa').setup({
             theme = "dragon",
+            commentStyle = { italic = false },
+            statementStyle = { bold = false },
+            keywordStyle = { italic = false },
         })
 	end
     },

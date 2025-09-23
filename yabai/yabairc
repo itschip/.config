@@ -30,4 +30,4 @@ yabai -m rule --add app="^Screen Sharing$" manage=off
 SPACEBAR_HEIGHT=$(spacebar -m config height)
 yabai -m config external_bar all:0:$SPACEBAR_HEIGHT
 
-borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0 2>/dev/null 1>&2 &
+# borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0 2>/dev/null 1>&2 &
