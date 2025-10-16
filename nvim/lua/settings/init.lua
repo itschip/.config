@@ -22,7 +22,7 @@ vim.o.colorcolumn = "100"
 
 set.relativenumber = true
 set.number = true
-set.cursorline = true
+set.cursorline = false
 
 set.hidden = false
 
@@ -31,7 +31,7 @@ set.laststatus = 3
 set.linespace = 10
 set.clipboard = "unnamed"
 
-vim.opt.cursorline = false
+--vim.opt.cursorline = false
 
 vim.opt.list = false
 vim.opt.listchars:append("space:⋅")

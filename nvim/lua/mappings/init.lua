@@ -43,6 +43,7 @@ map("n", "gc", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 map("n", "gh", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
 map("n", "gq", "<cmd>lua vim.diagnostic.setqflist()<cr>", opts)
 
+
 -- Smart Splits
 map("n", "<C-h>", "<cmd>lua require('smart-splits').move_cursor_left()<cr>", opts)
 map("n", "<C-j>", "<cmd>lua require('smart-splits').move_cursor_down()<cr>", opts)
