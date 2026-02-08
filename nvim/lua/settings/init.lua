@@ -4,7 +4,7 @@ set.expandtab = true
 set.smarttab = true
 set.shiftwidth = 4
 set.tabstop = 4
-set.guicursor = ""
+set.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50"
 
 set.hlsearch = true
 set.incsearch = true
@@ -24,6 +24,8 @@ set.relativenumber = true
 set.number = true
 set.cursorline = false
 
+set.autoread = true
+
 set.hidden = false
 
 set.laststatus = 3
@@ -39,6 +41,20 @@ vim.opt.listchars:append("space:⋅")
 --vim.g.copilot_enabled = false
 
 --require("ibl").setup()
+
+-- Configure diagnostics to show colored bar in sign column
+vim.diagnostic.config({
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = "▌",
+            [vim.diagnostic.severity.WARN] = "▌",
+            [vim.diagnostic.severity.INFO] = "▌",
+            [vim.diagnostic.severity.HINT] = "▌",
+        },
+        linehl = {},
+        numhl = {},
+    },
+})
 
 vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*",

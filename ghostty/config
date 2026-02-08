@@ -233,7 +233,7 @@ adjust-overline-position =
 adjust-overline-thickness = 
 
 # Thickness in pixels of the bar cursor and outlined rect cursor.
-adjust-cursor-thickness = 
+adjust-cursor-thickness = 2
 
 # Thickness in pixels of box drawing characters.
 adjust-box-thickness = 
@@ -342,7 +342,7 @@ freetype-load-flags = hinting,force-autohint,monochrome,autohint
 # 
 #   - macOS: titlebar tabs style is not updated when switching themes.
 # 
-theme = dark:"Kanagawa Dragon",light:grey
+theme = dark:"Terminal Basic Dark",light:"Terminal Basic"
 
 # The foreground and background color for selection. If this is not set, then
 # the selection color is just the inverted window background and foreground
@@ -385,10 +385,10 @@ cursor-style = block
 cursor-style-blink = false
 
 
-shell-integration-features = no-cursor
+shell-integration-features = no-cursor,ssh-terminfo,ssh-env
 
 # The color of the cursor. If this is not set, a default will be chosen.
-#cursor-color = 
+#cursor-color = #000000 
 
 # Swap the foreground and background colors of the cell under the cursor. This
 # option overrides the `cursor-color` and `cursor-text` options.

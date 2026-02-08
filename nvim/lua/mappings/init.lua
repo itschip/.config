@@ -19,12 +19,32 @@ map("n", "<S-j>", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", opts)
 map("n", "<S-k>", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", opts)
 map("n", "<S-l>", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", opts)
 
-map("n", "<leader>o", ":Explore<CR>", opts)
+map("n", "<leader>o", "<cmd>Explore<CR>", opts)
 -- map("n", "<S-h>", "<cmd>BufferLineCyclePrev<cr>", opts)
 
 map("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 map("n", "<leader>fw", ":Telescope live_grep<CR>", opts)
 map("n", "<leader>fg", ":Telescope git_files<CR>", opts)
+-- Find directory and open Neo-tree there
+vim.keymap.set("n", "<leader>fd", function()
+    require("telescope.builtin").find_files({
+        find_command = { "fd", "--type", "d", "--exclude", ".git" },
+        prompt_title = "Find Directory",
+        attach_mappings = function(_, map_fn)
+            map_fn("i", "<CR>", function(prompt_bufnr)
+                local selection = require("telescope.actions.state").get_selected_entry()
+                require("telescope.actions").close(prompt_bufnr)
+                vim.cmd("Explore " .. selection.value)
+            end)
+            map_fn("n", "<CR>", function(prompt_bufnr)
+                local selection = require("telescope.actions.state").get_selected_entry()
+                require("telescope.actions").close(prompt_bufnr)
+                vim.cmd("Explore " .. selection.value)
+            end)
+            return true
+        end,
+    })
+end, opts)
 map("i", "jk", "<C-\\><C-n>", opts)
 map("i", "jj", "<C-\\><C-n>", opts)
 

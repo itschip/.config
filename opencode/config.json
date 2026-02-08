@@ -1,15 +1,87 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "theme": "opencode",
-  "model": "google/gemini-2.5-pro",
+  "instructions": ["AGENTS.md"],
+  "model": "google/gemini-3-pro",
   "permission": {
     "bash": "ask"
   },
+  "agent": {
+    "plan": {
+      "mode": "primary",
+      "tools": {
+        "write": false,
+        "edit": false,
+        "bash": false
+      },
+      "permission": {
+        "read": "allow",
+        "webfetch": "allow",
+        "websearch": "allow",
+        "external_directory": "allow",
+        "grep": "allow",
+        "list": "allow",
+        "glob": "allow",
+        "codesearch": "allow",
+        "lsp": "allow",
+        "skill": "allow"
+      }
+    },
+    "documentation-writer": {
+      "model": "google/gemini-3-pro",
+      "mode": "subagent",
+      "permission": {
+        "bash": "ask",
+        "read": "allow",
+        "todowrite": "allow",
+        "codesearch": "allow",
+        "edit": "allow",
+        "websearch": "allow",
+        "webfetch": "allow",
+        "grep": "allow",
+        "external_directory": "allow"
+      }
+    }
+  },
+  "mcp": {
+    "linear": {
+      "type": "local",
+      "command": ["npx", "-y", "mcp-remote", "https://mcp.linear.app/mcp"]
+    },
+    "clickhouse": {
+      "type": "local",
+      "enabled": true,
+      "command": [
+        "/Users/chip/.local/bin/uv",
+        "run",
+        "--with",
+        "mcp-clickhouse",
+        "--python",
+        "3.10",
+        "mcp-clickhouse"
+      ],
+      "environment": {
+        "CLICKHOUSE_HOST": "localhost",
+        "CLICKHOUSE_PORT": "18123",
+        "CLICKHOUSE_USER": "default",
+        "CLICKHOUSE_PASSWORD": "password",
+        "CLICKHOUSE_SECURE": "false",
+        "CLICKHOUSE_VERIFY": "false",
+        "CLICKHOUSE_CONNECT_TIMEOUT": "30",
+        "CLICKHOUSE_SEND_RECEIVE_TIMEOUT": "30"
+      }
+    },
+    "database-mcp": {
+      "type": "local",
+      "command": ["/Users/chip/.gvm/pkgsets/go1.24/global/bin/go-database-mcp"],
+      "enabled": true,
+      "environment": {
+        "DB_CONNECTION_STRING": "postgresql://postgres:root@localhost:54321/fivegate-dev?sslmode=disable"
+      }
+    }
+  },
   "keybinds": {
     "leader": "ctrl+x",
-    "app_help": "<leader>h",
-    "switch_mode": "tab",
-
     "editor_open": "<leader>e",
 
     "session_new": "<leader>n",
@@ -19,14 +91,8 @@
     "session_interrupt": "esc",
     "session_compact": "<leader>c",
 
-    "tool_details": "<leader>d",
     "model_list": "<leader>m",
     "theme_list": "<leader>t",
-    "project_init": "<leader>i",
-
-    "file_list": "<leader>f",
-    "file_close": "esc",
-    "file_diff_toggle": "<leader>v",
 
     "input_clear": "ctrl+c",
     "input_paste": "ctrl+v",
@@ -37,13 +103,9 @@
     "messages_page_down": "pgdown",
     "messages_half_page_up": "ctrl+alt+u",
     "messages_half_page_down": "ctrl+alt+d",
-    "messages_previous": "ctrl+up",
-    "messages_next": "ctrl+down",
     "messages_first": "ctrl+g",
     "messages_last": "ctrl+alt+g",
-    "messages_layout_toggle": "<leader>p",
     "messages_copy": "<leader>y",
-    "messages_revert": "<leader>r",
     "app_exit": "ctrl+c,<leader>q"
   }
 }

@@ -3,6 +3,7 @@ require("lazy").setup({
     --"github/copilot.vim",
     "ThePrimeagen/harpoon",
     {"nvim-telescope/telescope.nvim"},
+
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     {
@@ -92,10 +93,12 @@ require("lazy").setup({
             formatters_by_ft = {
                 ["go"] = { "gofumpt" },
                 ["javascript"] = { "prettierd", stop_after_first = true },
+                ["css"] = { "prettierd", stop_after_first = true },
                 ["javascriptreact"] = { "prettierd", stop_after_first = true },
                 ["typescript"] = { "prettierd", stop_after_first = true },
                 ["typescriptreact"] = { "prettierd", stop_after_first = true },
                 ["json"] = { "prettierd", stop_after_first = true },
+                ["jsonc"] = { "prettierd", stop_after_first = true },
                 ["rust"] = { "rustfmt", stop_after_first = true }
             },
         },
@@ -135,10 +138,16 @@ require("lazy").setup({
     "nvim-lualine/lualine.nvim",
     "tpope/vim-fugitive",
     {
+        "benomahony/uv.nvim",
+        opts = {
+            picker_integration = true
+        }
+    },
+    {
       priority = 1000, -- make sure to load this before all the other start plugins
       dir = "~/.config/nvim-plugins/nvim-grey",
     },
-     {
+    {
 	"rebelot/kanagawa.nvim",
     lazy = false,
 	config = function()

@@ -76,7 +76,7 @@ local highlights = {
   Comment = { fg = grey },
   Conceal = {},
   Constant = { fg = black },
-  Cursor = { bg = black },
+  Cursor = { fg = white, bg = black },
   -- This is to work around https://github.com/neovim/neovim/issues/9800.
   CursorLine = { ctermfg = 'black' },
   CursorLineNr = { fg = black, bold = true },
@@ -278,6 +278,10 @@ local highlights = {
   DiagnosticInfo = { fg = blue, bold = true },
   DiagnosticWarn = { fg = dark_yellow, bold = true },
   DiagnosticDeprecated = {},
+  DiagnosticSignError = { fg = red },
+  DiagnosticSignWarn = { fg = dark_yellow },
+  DiagnosticSignInfo = { fg = blue },
+  DiagnosticSignHint = { fg = grey },
   -- Make
   makeTarget = { link = 'Function' },
   -- Markdown
