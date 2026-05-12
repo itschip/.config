@@ -148,7 +148,7 @@ require("lazy").setup({
       dir = "~/.config/nvim-plugins/nvim-grey",
     },
     {
-	"rebelot/kanagawa.nvim",
+	"navarasu/onedark.nvim",
     lazy = false,
 	config = function()
         require('kanagawa').setup({
@@ -157,9 +157,6 @@ require("lazy").setup({
             statementStyle = { bold = false },
             transparent = false
         })
-        --require('onedark').setup({
-        --    style = "warm",
-        --})
 	end
     },
     {
